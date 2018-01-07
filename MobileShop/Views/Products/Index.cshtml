@@ -1,0 +1,98 @@
+﻿@model IEnumerable<MobileShop.Models.Products>
+
+@{
+    ViewData["Title"] = "ProductList";
+}
+
+
+<h2>Product List</h2>
+<p>
+    <a asp-action="AddNewProduct">Create New</a>
+</p>
+<table class="table" id="dtable">
+    <thead>
+        <tr>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.ProductCode)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModelNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SerialNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Iemino)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Color)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryCode)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.ProductCode)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModelNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iemino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryCode)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditProduct", new { ProductCode=item.ProductCode }) |
+                @Html.ActionLink("Details", "ProductDetail", new { ProductCode=item.ProductCode }) |
+                @Html.ActionLink("Delete", "DeleteProduct", new { ProductCode=item.ProductCode })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section Scripts
+{
+<script>
+            $(document).ready(function () {
+                $('#dtable').DataTable();
+            });
+</script>
+}

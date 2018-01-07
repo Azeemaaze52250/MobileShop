@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MobileShop.Models.ProductCategory>
+
+@{
+    ViewData["Title"] = "Product Category List";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="AddNewProductCategory">Create New</a>
+</p>
+<table class="table" id="dtable">
+    <thead>
+        <tr>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.CategoryCode)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryName)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.CategoryCode)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditProductCategory", new { CategoryCode=item.CategoryCode }) |
+                @Html.ActionLink("Details", "ProductCategoryDetail", new { CategoryCode=item.CategoryCode }) |
+                @Html.ActionLink("Delete", "DeleteProductCategory", new {CategoryCode=item.CategoryCode })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section Scripts
+    {
+   <script>
+            $(document).ready(function () {
+                $('#dtable').DataTable();
+            });
+</script>
+}

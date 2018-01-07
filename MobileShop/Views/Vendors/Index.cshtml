@@ -1,0 +1,80 @@
+﻿@model IEnumerable<MobileShop.Models.Vendors>
+
+@{
+    ViewData["Title"] = "Vendor List";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="AddNewVendor">Create New</a>
+</p>
+<table class="table" id="dtable">
+    <thead>
+        <tr>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.VendorCode)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.VendorName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Area)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Country)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mobile)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cnic)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.VendorCode)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cnic)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditVendor", new { VendorCode=item.VendorCode }) |
+                @Html.ActionLink("Details", "VendorDetail", new { VendorCode=item.VendorCode }) |
+                @Html.ActionLink("Delete", "DeleteVendor", new {  VendorCode=item.VendorCode })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section Scripts
+{
+<script>
+            $(document).ready(function () {
+                $('#dtable').DataTable();
+            });
+</script>
+}

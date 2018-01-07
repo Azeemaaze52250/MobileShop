@@ -1,0 +1,79 @@
+﻿@model IEnumerable<MobileShop.Models.Sale>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="AddNewSale">Create New</a>
+</p>
+<table class="table" id="dtable">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tdate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UnitPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LineTotal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerCode)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LineTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerCode)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditSale", new { Id=item.Id }) |
+                @Html.ActionLink("Details", "SaleDetail", new { Id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteSale", new { Id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section Scripts
+    {
+    <script>
+            $(document).ready(function () {
+                $('#dtable').DataTable();
+            });
+</script>
+}

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<MobileShop.Models.Customers>
+
+@{
+    ViewData["Title"] = "CustomerList";
+}
+
+<h2>All Customers List</h2>
+
+<p>
+    <a asp-action="AddNewCustomer">Create New</a>
+</p>
+<table class="table" id="dtable">
+    <thead>
+        <tr>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.CustomerCode)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mobile)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cnic)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Street)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Area)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Country)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.CustomerCode)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cnic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditCustomer", new { CustomerCode=item.CustomerCode }) |
+                @Html.ActionLink("Details", "CustomerDetail", new {  CustomerCode=item.CustomerCode  }) |
+                @Html.ActionLink("Delete", "DeleteCustomer", new { CustomerCode=item.CustomerCode })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section Scripts
+    {
+        <script>
+            $(document).ready(function () {
+                $('#dtable').DataTable();
+            });
+</script>
+}

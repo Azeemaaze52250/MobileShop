@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "My Mobile Shop";
+}
+
+<hr /><hr /><hr />
+<div class="panel col-md-2">
+    <div class="panel-heading alert-danger   text-center">
+        Total Users
+    </div>
+    <div class="panel-body  text-center">
+        <span class="badge badge-primary badge" id="UserCounter">0</span>
+    </div>
+    <div class="panel-footer alert-danger"></div>
+</div>
+
+<div class="panel col-md-2">
+    <div class="panel-heading alert-info   text-center">
+        Total Customers
+    </div>
+    <div class="panel-body   text-center">
+        <span class="badge badge-primary badge h2" id="CustomerCounter">0</span>
+    </div>
+    <div class="panel-footer alert-danger"></div>
+</div>
+
+<div class="panel col-md-2">
+    <div class="panel-heading alert-success   text-center">
+        Total Vendors
+    </div>
+    <div class="panel-body   text-center">
+        <span class="badge badge-primary badge   text-center h2" id="VendorCounter">0</span>
+    </div>
+    <div class="panel-footer alert-danger"></div>
+</div>
+
+<div class="panel col-md-2">
+    <div class="panel-heading alert-warning   text-center">
+        Total Categories
+    </div>
+    <div class="panel-body   text-center">
+        <span class="badge badge-primary badge" id="CategoryCounter">0</span>
+    </div>
+    <div class="panel-footer alert-danger"></div>
+</div>
+
+<div class="panel col-md-2">
+    <div class="panel-heading alert-danger   text-center">
+       Total Items
+    </div>
+    <div class="panel-body   text-center">
+        <span class="badge badge-primary badge" id="ItemCounter">0</span>
+    </div>
+    <div class="panel-footer alert-danger"></div>
+</div>
+
+
+@section Scripts
+    {
+    <script>
+
+    $(function () {
+        $('#UserCounter').load('/Home/UserCount');
+        $('#CustomerCounter').load('/Home/CustomerCount');
+        $('#VendorCounter').load('/Home/VendorCount');
+        $('#CategoryCounter').load('/Home/CategoryCount');
+        $('#ItemCounter').load('/Home/ItemCount');        
+    });
+        </script>
+        }
+

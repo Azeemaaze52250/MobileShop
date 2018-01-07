@@ -1,0 +1,57 @@
+﻿@model MobileShop.Models.Users
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UserLogin</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+   
+</head>
+
+<body class="center-block">
+
+    <h4>Login With UserName And Password</h4>
+    <hr />
+
+   
+        <form class="form-horizontal" asp-action="UserLogin" method="post">
+            <div class="col-md-12 ">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              
+                <div class="form-group col-md-3">
+                    <label asp-for="UserName" class="control-label"></label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+               
+                <div class="form-group col-md-3">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    <input type="submit" value="Login" class="btn btn-default" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <a asp-action="AddNewUser">Register User</a>
+            </div>
+    </form>
+
+
+   
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
+</html>
