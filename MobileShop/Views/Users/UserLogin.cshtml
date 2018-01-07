@@ -18,40 +18,39 @@
 
 <body class="center-block">
 
-    <h4>Login With UserName And Password</h4>
-    <hr />
+    
 
-   
-        <form class="form-horizontal" asp-action="UserLogin" method="post">
-            <div class="col-md-12 ">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-              
-                <div class="form-group col-md-3">
-                    <label asp-for="UserName" class="control-label"></label>
-                    <input asp-for="UserName" class="form-control" />
-                    <span asp-validation-for="UserName" class="text-danger"></span>
+    <div class="col-md-3 col-md-offset-1 panel panel-primary pull-left">
+    <div class="panel-heading text-center">
+        Please sign in
+    </div>
+        <div class="panel-body">
+            <form class="form-signin" asp-action="UserLogin" method="post">
+                <hr />
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" required autofocus />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" type="password" class="form-control" required />
+                <span asp-validation-for="Password" class="text-danger"></span>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
                 </div>
-               
-                <div class="form-group col-md-3">
-                    <label asp-for="Password" class="control-label"></label>
-                    <input asp-for="Password" type="password" class="form-control" />
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-2">
-                    <input type="submit" value="Login" class="btn btn-default" />
-                </div>
-            </div>
-
-            <div class="form-group">
-                <a asp-action="AddNewUser">Register User</a>
-            </div>
-    </form>
-
-
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <hr />
+            </form>
+        </div>
+    </div> <!-- /container -->
    
 
     @section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+function add_chatinline(){var hccid=97452151;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}
+add_chatinline(); </script>
     }
 </body>
 </html>

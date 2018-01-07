@@ -28,8 +28,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataTable\" />
+    <Folder Include="wwwroot\DataTable\" />
     <Folder Include="wwwroot\ProductImages\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\DataTable\jquery.dataTables.min.css" />
+    <None Include="wwwroot\DataTable\jquery.dataTables.min.js" />
   </ItemGroup>
 
 </Project>

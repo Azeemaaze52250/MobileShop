@@ -13,8 +13,10 @@ namespace MobileShop.Models
         }
 
         public int CustomerCode { get; set; }
-        [DisplayName("Customer Name")]
+
         [Required]
+        [StringLength(50)]
+        [DisplayName("Customer Name")]       
         public string CustomerName { get; set; }
         public string Mobile { get; set; }
         public string Cnic { get; set; }
