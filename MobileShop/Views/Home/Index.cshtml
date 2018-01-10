@@ -1,70 +1,466 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "My Mobile Shop";
+    Layout = "~/Views/Shared/_LayoutDashBoard.cshtml";
 }
 
-<hr /><hr /><hr />
-<div class="panel col-md-2">
-    <div class="panel-heading alert-danger   text-center">
-        Total Users
-    </div>
-    <div class="panel-body  text-center">
-        <span class="badge badge-primary badge" id="UserCounter">0</span>
-    </div>
-    <div class="panel-footer alert-danger"></div>
+<style>
+    td{
+      color:black;
+    }
+
+    #work-in-progress {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        font-size: 150px;
+        text-align: center;
+        vertical-align: middle;
+        color: #000000;
+        z-index: 200000;
+        background-color: #FFFFFF;
+    }
+
+    .work-spinner {
+        background-color: rgba(0,0,0,0);
+        border: 9px solid rgba(27,61,226,0.9);
+        opacity: .9;
+        border-left: 5px solid rgba(0,0,0,0);
+        border-radius: 120px;
+        -webkit-box-shadow: 0 0 35px #1B3DE2;
+        box-shadow: 0 0 35px #1B3DE2;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        -moz-animation: spin .5s infinite linear;
+        -webkit-animation: spin .5s infinite linear;
+        -o-animation: spin .5s infinite linear;
+        animation: spin .5s infinite linear;
+    }
+
+
+</style>
+   
+<div id="work-in-progress">
+    <div class="work-spinner"></div>
 </div>
 
-<div class="panel col-md-2">
-    <div class="panel-heading alert-info   text-center">
-        Total Customers
+   <div class="container">
+    <!-- Codrops top bar -->
+  
+    <div class="main">
+        <div id="mi-slider" class="mi-slider">
+            <ul>
+                <li><a href="#"><img src="~/ItemSlider/images/1.jpg" alt="img01"><h4>IPhone4</h4></a></li>
+                <li><a href="#"><img src="~/ItemSlider/images/2.jpg" alt="img02"><h4>IPhone5</h4></a></li>
+                <li><a href="#"><img src="~/ItemSlider/images/3.jpg" alt="img03"><h4>IPhone6</h4></a></li>
+                <li><a href="#"><img src="~/ItemSlider/images/4.png" alt="img04"><h4>IPhone25</h4></a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><img src="~/ItemSlider/images/5.jpg" alt="img05"><h4>SamSung</h4></a></li>
+                <li><a href="#"><img src="~/ItemSlider/images/6.jpg" alt="img06"><h4>SamSung Gold</h4></a></li>
+                <li><a href="#"><img src="~/ItemSlider/images/7.jpg" alt="img07"><h4>SamSung Pink Covered</h4></a></li>
+                <li><a href="#"><img src="~/ItemSlider/images/8.jpg" alt="img08"><h4>SamSung Land</h4></a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><img src="~/ItemSlider/images/9.jpg" alt="img09"><h4>BlackBerry</h4></a></li>
+                <li><a href="#"><img src="~/ItemSlider/images/10.jpg" alt="img10"><h4>3 BlackBerry</h4></a></li>
+                <li><a href="#"><img src="~/ItemSlider/images/11.jpg" alt="img11"><h4>BlackBerry Sport</h4></a></li>
+                <li><a href="#"><img src="~/ItemSlider/images/16.png" alt="img16"><h4>BlackBerry Carry</h4></a></li>
+            </ul>
+            <ul>
+                
+                <li><a href="#"><img src="~/ItemSlider/images/13.jpg" alt="img13"><h4>Charger</h4></a></li>
+                <li><a href="#"><img src="~/ItemSlider/images/14.jpg" alt="img14"><h4>Hand Free</h4></a></li>
+                <li><a href="#"><img src="~/ItemSlider/images/15.jpg" alt="img15"><h4>Cable</h4></a></li>
+                <li><a href="#"><img src="~/ItemSlider/images/12.png" alt="img12"><h4>Phone Cover</h4></a></li>
+                
+            </ul>
+            <nav>
+                <a href="#">IPhone</a>
+                <a href="#">Samsung</a>
+                <a href="#">BlackBerry</a>
+                <a href="#">Accessaries</a>
+            </nav>
+        </div>
     </div>
-    <div class="panel-body   text-center">
-        <span class="badge badge-primary badge h2" id="CustomerCounter">0</span>
+</div><!-- /container -->
+
+<div class="row bg-primary"  >
+    <hr class="text-hide" />
+    <div class="col-md-11 col-md-offset-1">
+        
+        <div class="panel panel-danger col-md-3 col-md-offset-0 text-center"  style="height:300px;">
+
+            <div class="panel-heading col-md-12 bg-warning">
+                <h5> Users</h5>
+            </div>
+            <div class="panel-body col-md-12">
+                <span class="h2 text-info" id="UserCounter">0</span>
+
+                <div class="col-md-12">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="bg-warning text-center">Last 3 Days Activity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Users Added</td>
+                                <td><span class="badge" id="userAdded">0</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Admin Added</td>
+                                <td><span class="badge" id="adminAdded">0</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Staff Added</td>
+                                <td><span class="badge" id="staffAdded">0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="panel-footer">
+
+            </div>
+        </div>
+
+        <div class="panel panel-danger col-md-3 col-md-offset-1 text-center"  style="height:300px;">
+
+            <div class="panel-heading col-md-12 bg-warning">
+                <h5> Product Category</h5>
+            </div>
+            <div class="panel-body col-md-12">
+                <span class="h2 text-info" id="CategoryCounter">0</span>
+
+                <div class="col-md-12">
+                    <table class="table table-bordered table-striped table-condensed table-responsive">
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="bg-warning text-center">Last 3 Days Activity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Category Added</td>
+                                <td><span class="badge" id="cateogyAdded">0</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Last Added Category</td>
+                                <td><span class="badge" id="lastAddedCategory">0</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Category Without Item</td>
+                                <td><span class="badge" id="categoryWithoutItem">0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="panel-footer">
+
+            </div>
+        </div>
+
+        <div class="panel panel-danger col-md-3 col-md-offset-1 text-center table-condensed"  style="height:300px;">
+
+            <div class="panel-heading col-md-12 bg-warning">
+                <h5> Products </h5>
+            </div>
+            <div class="panel-body col-md-12">
+                <span class="h2 text-info" id="ItemCounter">0</span>
+
+                <div class="col-md-12">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="bg-warning text-center">Last 3 Days Activity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Products Added</td>
+                                <td><span class="badge" id="productAdded">0</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Last Added Product</td>
+                                <td><span class="badge" id="lastAddedProduct">0</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Most Expensive Product</td>
+                                <td><span class="badge" id="mostExpensiveProduct">0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="panel-footer">
+
+            </div>
+        </div>
+
     </div>
-    <div class="panel-footer alert-danger"></div>
 </div>
 
-<div class="panel col-md-2">
-    <div class="panel-heading alert-success   text-center">
-        Total Vendors
+<hr class="text-hide" />
+
+<div class="row bg-primary">
+    <hr class="text-hide" />
+
+    <div class="col-md-11 col-md-offset-1">
+
+        <div class="panel panel-danger col-md-3 col-md-offset-0  text-center"  style="height:300px;">
+
+            <div class="panel-heading col-md-12 bg-warning">
+                <h5> Customers</h5>
+            </div>
+            <div class="panel-body col-md-12">
+                <span class="h2 text-info" id="CustomerCounter">0</span>
+
+                <div class="col-md-12">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="bg-warning text-center">Last 3 Days Activity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Customers Added</td>
+                                <td><span class="badge" id="customerAdded">0</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Last Added</td>
+                                <td><span class="badge" id="lastAddedCustomer">0</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Most Visited</td>
+                                <td><span class="badge" id="mostVisited">0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="panel-footer">
+
+            </div>
+        </div>
+
+        <div class="panel panel-danger col-md-3 col-md-offset-1 text-center"  style="height:300px;">
+
+            <div class="panel-heading col-md-12 bg-warning">
+                <h5> Vendors</h5>
+            </div>
+            <div class="panel-body col-md-12">
+                <span class="h2 text-info" id="VendorCounter">0</span>
+
+                <div class="col-md-12">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="bg-warning text-center">Last 3 Days Activity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Vendors Added</td>
+                                <td><span class="badge" id="vendorsAdded">0</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Last Added Vendor</td>
+                                <td><span class="badge" id="lastAddedVendor">0</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Most Purchased From Item</td>
+                                <td><span class="badge" id="mostPurchasedFrom">0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="panel-footer">
+
+            </div>
+        </div>
+
+        <div class="panel panel-danger col-md-3 col-md-offset-1  text-center"  style="height:300px;">
+
+            <div class="panel-heading col-md-12 bg-warning">
+                <h5> Sale </h5>
+            </div>
+            <div class="panel-body col-md-12">
+                <span class="h2 text-info" id="SaleCounter">0</span>
+
+                <div class="col-md-12">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="bg-warning text-center">Last 3 Days Activity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total No of Sales</td>
+                                <td><span class="badge" id="totalNoOfSales">0</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Maximum Single Sale</td>
+                                <td><span class="badge" id="maximumSingleSale">0</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Minimum Single Sale</td>
+                                <td><span class="badge" id="minimumSingleSale">0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="panel-footer">
+
+            </div>
+        </div>
+
     </div>
-    <div class="panel-body   text-center">
-        <span class="badge badge-primary badge   text-center h2" id="VendorCounter">0</span>
-    </div>
-    <div class="panel-footer alert-danger"></div>
 </div>
 
-<div class="panel col-md-2">
-    <div class="panel-heading alert-warning   text-center">
-        Total Categories
-    </div>
-    <div class="panel-body   text-center">
-        <span class="badge badge-primary badge" id="CategoryCounter">0</span>
-    </div>
-    <div class="panel-footer alert-danger"></div>
-</div>
+<hr class="text-hide" />
 
-<div class="panel col-md-2">
-    <div class="panel-heading alert-danger   text-center">
-       Total Items
+<div class="row bg-primary">
+
+    <hr class="text-hide" />
+
+    <div class="col-md-11 col-md-offset-1">
+
+      
+
+        <div class="panel panel-danger col-md-3 col-md-offset-4 text-center"  style="height:300px;">
+
+            <div class="panel-heading col-md-12 bg-warning">
+                <h5> Purchases</h5>
+            </div>
+            <div class="panel-body col-md-12">
+                <span class="h2 text-info" id="PurchaseCounter">0</span>
+
+                <div class="col-md-12">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="bg-warning text-center">Last 3 Days Activity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total No Of Purchases</td>
+                                <td><span class="badge" id="totalNoOfPurchases">0</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Maximum Single Purchase</td>
+                                <td><span class="badge" id="maximumSinglePurchase">0</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Minimum Single Purchase</td>
+                                <td><span class="badge" id="minimumSinglePurchase">0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="panel-footer">
+
+            </div>
+        </div>
+
+
     </div>
-    <div class="panel-body   text-center">
-        <span class="badge badge-primary badge" id="ItemCounter">0</span>
-    </div>
-    <div class="panel-footer alert-danger"></div>
 </div>
+   
 
 
 @section Scripts
     {
     <script>
 
+        $(window).bind("load", function () {
+            $('#work-in-progress').fadeOut(100);
+        });
+
     $(function () {
         $('#UserCounter').load('/Home/UserCount');
         $('#CustomerCounter').load('/Home/CustomerCount');
         $('#VendorCounter').load('/Home/VendorCount');
         $('#CategoryCounter').load('/Home/CategoryCount');
-        $('#ItemCounter').load('/Home/ItemCount');        
+        $('#ItemCounter').load('/Home/ItemCount');
+        $('#SaleCounter').load('/Home/SaleCount');
+        $('#PurchaseCounter').load('/Home/PurchaseCount');
+
+        $('#userAdded').load('/Home/UserAdded');
+        $('#adminAdded').load('/Home/AdminAdded');
+        $('#staffAdded').load('/Home/StaffAdded');
+
+        $('#categoryAdded').load('/Home/CategoryAdded');
+        $('#lastAddedCategory').load('/Home/LastAddedCategory');
+        $('#categoryWithoutItem').load('/Home/CategoryWithoutItem');
+
+        $('#productAdded').load('/Home/ProductAdded');
+        $('#lastAddedProduct').load('/Home/LastAddedProduct');
+        $('#mostExpensiveProducts').load('/Home/MostExpensiveProducts');
+
+        $('#customerAdded').load('/Home/CustomerAdded');
+        $('#lastAddedCustomer').load('/Home/LastAddedCustomer');
+        $('#mostVisited').load('/Home/MostVisited');
+
+        $('#vendorsAdded').load('/Home/VendorsAdded');
+        $('#lastAddedVendor').load('/Home/LastAddedVendor');
+        $('#mostPurchasedFrom').load('/Home/MostPurchasedFrom');
+
+        $('#totalNoOfSales').load('/Home/TotalNoOfSales');
+        $('#maximumSingleSale').load('/Home/MaximumSingleSale');
+        $('#minimumSingleSale').load('/Home/MinimumSingleSale');
+
+        $('#totalNoofPurchases').load('/Home/TotalNoOfPurchases');
+        $('#minimumSinglePurchase').load('/Home/MinimumSinglePurchase');
+        $('#maximumSinglePurchase').load('/Home/MaximumSinglePurchase');
     });
-        </script>
-        }
+    </script>
+
+<script>
+            $(function () {
+
+                $('#mi-slider').catslider();
+
+            });
+</script>
+}
+
+
 

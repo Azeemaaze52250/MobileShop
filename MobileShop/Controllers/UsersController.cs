@@ -30,6 +30,7 @@ namespace MobileShop.Controllers
         [HttpPost]
         public IActionResult AddNewUser(Users c)
         {
+            c.Tdate = DateTime.Today.Date;
             dbContext.Users.Add(c);
             dbContext.SaveChanges();
 
@@ -72,7 +73,7 @@ namespace MobileShop.Controllers
             if (v != null)
             {
                 
-                return RedirectToAction(nameof(Index), nameof(Products));
+                return RedirectToAction(nameof(Index), "Home");
 
             }
             else

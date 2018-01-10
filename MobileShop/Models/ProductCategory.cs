@@ -17,6 +17,7 @@ namespace MobileShop.Models
         [Required]
         [MaxLength(50)]
         public string CategoryName { get; set; }
+        public DateTime? Tdate { get; set; }
 
         public ICollection<Products> Products { get; set; }
     }

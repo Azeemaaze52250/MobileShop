@@ -681,3 +681,4 @@ D:\MVC Data\MyMobileShop\MobileShop\obj\Debug\net462\MobileShop.AssemblyInfoInpu
 D:\MVC Data\MyMobileShop\MobileShop\obj\Debug\net462\MobileShop.AssemblyInfo.cs
 D:\MVC Data\MyMobileShop\MobileShop\obj\Debug\net462\MobileShop.exe
 D:\MVC Data\MyMobileShop\MobileShop\obj\Debug\net462\MobileShop.pdb
+D:\MVC Data\MyMobileShop\MobileShop\obj\Debug\net462\MobileShop.csprojResolveAssemblyReference.cache

@@ -5,6 +5,11 @@
     <UserSecretsId>aspnet-MobileShop-1978286B-A547-45E0-9C6C-582580BFFBF0</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\ItemSlider\images\12.jpg" />
+    <Content Remove="wwwroot\ItemSlider\images\4.jpg" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />

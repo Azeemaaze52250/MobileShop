@@ -34,6 +34,8 @@ namespace MobileShop.Models
         [DisplayName("Category")]
         public int? CategoryCode { get; set; }
 
+        public DateTime? Tdate { get; set; }
+
         public ProductCategory CategoryCodeNavigation { get; set; }
         public ICollection<Purchase> Purchase { get; set; }
         public ICollection<Sale> Sale { get; set; }

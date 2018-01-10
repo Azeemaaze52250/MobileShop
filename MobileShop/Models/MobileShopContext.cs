@@ -60,6 +60,8 @@ namespace MobileShop.Models
                 entity.Property(e => e.Street)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Tdate).HasColumnType("date");
             });
 
             modelBuilder.Entity<ProductCategory>(entity =>
@@ -69,6 +71,8 @@ namespace MobileShop.Models
                 entity.Property(e => e.CategoryName)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Tdate).HasColumnType("date");
             });
 
             modelBuilder.Entity<Products>(entity =>
@@ -112,6 +116,8 @@ namespace MobileShop.Models
                 entity.Property(e => e.SerialNo)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Tdate).HasColumnType("date");
 
                 entity.HasOne(d => d.CategoryCodeNavigation)
                     .WithMany(p => p.Products)
@@ -161,6 +167,8 @@ namespace MobileShop.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Tdate).HasColumnType("date");
+
                 entity.Property(e => e.UserRole)
                     .HasMaxLength(5)
                     .IsUnicode(false);
@@ -194,6 +202,8 @@ namespace MobileShop.Models
                 entity.Property(e => e.VendorName)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Tdate).HasColumnType("date");
             });
         }
     }

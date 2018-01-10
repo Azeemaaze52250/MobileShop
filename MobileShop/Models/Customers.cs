@@ -16,8 +16,9 @@ namespace MobileShop.Models
 
         [Required]
         [StringLength(50)]
-        [DisplayName("Customer Name")]       
+        [DisplayName("Customer Name")]    
         public string CustomerName { get; set; }
+        public DateTime? Tdate { get; set; }
         public string Mobile { get; set; }
         public string Cnic { get; set; }
         public string Street { get; set; }

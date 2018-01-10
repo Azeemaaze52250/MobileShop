@@ -20,6 +20,7 @@ namespace MobileShop.Models
         public string Mobile { get; set; }
         [DisplayName("CNIC")]
         public string Cnic { get; set; }
+        public DateTime? Tdate { get; set; }
 
 
         //public Vendors VendorCodeNavigation { get; set; }

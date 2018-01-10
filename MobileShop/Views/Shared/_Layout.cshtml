@@ -18,7 +18,8 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    @*<nav class="navbar navbar-inverse navbar-fixed-top">*@
+    <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-default bg-primary">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -76,19 +77,32 @@
                             <li><a href="/Purchase/Index">All Purchases</a></li>
                         </ul>
                     </li>
+
+                    <li class="dropdown">
+                        <a href="/MobileShop/Users" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Users/AddNewUser">Add New User</a></li>
+                            <li><a href="/Users/Index">Users List</a></li>
+                            <li><a href="/Users/ChangePassword">Users List</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 @*@await Html.PartialAsync("_LoginPartial")*@
             </div>
         </div>
     </nav>
 
-   
+   <div class="container body-content">
+       @RenderBody()
+       <br /><br />
+   </div>
+    
+    <div class="col-md-12 text-center bg-primary navbar-fixed-bottom">
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
         <footer>
-            <p>&copy; 2017 - MobileShop</p>
+            
+            <p>Final Assessment Task Assigned by <a class="text-warning" href="http://thetasolutions.co.uk/" target="_blank">Theta Solutions</a> and fully completed by 
+                <div class="LI-profile-badge" data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="azeem-rehman-322468156"><a class="LI-simple-link" href='https://pk.linkedin.com/in/azeem-rehman-322468156?trk=profile-badge'>Azeem rehman</a></div> <br /> (Sep 2017 Batch, ASP.NET CORE MVC6)</p>
         </footer>
     </div>
 

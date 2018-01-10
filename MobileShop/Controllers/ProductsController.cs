@@ -37,6 +37,7 @@ namespace MobileShop.Controllers
         [HttpPost]
         public IActionResult AddNewProduct(Products c,IFormFile Image)
         {
+            c.Tdate = DateTime.Today.Date;
             string wwwrootPath = env.WebRootPath;
             string PPFolderPath = wwwrootPath + "/ProductImages/";
 

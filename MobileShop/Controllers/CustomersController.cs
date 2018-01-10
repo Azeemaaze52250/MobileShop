@@ -30,6 +30,7 @@ namespace MobileShop.Controllers
         [HttpPost]
         public IActionResult AddNewCustomer(Customers c)
         {
+            c.Tdate = DateTime.Now.Date;
             dbContext.Customers.Add(c);
             dbContext.SaveChanges();
 

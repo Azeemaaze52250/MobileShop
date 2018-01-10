@@ -31,6 +31,7 @@ namespace MobileShop.Controllers
         [HttpPost]
         public IActionResult AddNewProductCategory(ProductCategory c)
         {
+            c.Tdate = DateTime.Today.Date;
             dbContext.ProductCategory.Add(c);
             dbContext.SaveChanges();
 

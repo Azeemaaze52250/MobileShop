@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MobileShop</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link href="~/ItemSlider/css/demo.css" rel="stylesheet" />
+        <link href="~/ItemSlider/css/style.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+
+    </environment>
+</head>
+<body>
+    @*<nav class="navbar navbar-inverse navbar-fixed-top navbar-default bg-primary">*@
+        <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-default bg-primary">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">MobileShop</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+
+                        <li class="dropdown">
+                            <a href="/MobileShop/Index" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catagories<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/ProductCategory/AddNewProductCategory">Add New Catagory</a></li>
+                                <li><a href="/ProductCategory/Index">Category List</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="/MobileShop/Product" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Products/AddNewProduct">Add New Product</a></li>
+                                <li><a href="/Products/Index">Product List</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="/MobileShop/Customers" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Customers<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Customers/AddNewCustomer">Add New Customer</a></li>
+                                <li><a href="/Customers/Index">Customer List</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="/MobileShop/Vendors" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vendors<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Vendors/AddNewVendor">Add New Vendor</a></li>
+                                <li><a href="/Vendors/Index">Vendor List</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="/MobileShop/Sale" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sale<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Sale/AddNewSale">Add New Sale</a></li>
+                                <li><a href="/Sale/Index">All Sales</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="/MobileShop/Purchase" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Purchase<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Purchase/AddNewPurchase">Add New Purchase</a></li>
+                                <li><a href="/Purchase/Index">All Purchases</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="/MobileShop/Users" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Users/AddNewUser">Add New User</a></li>
+                                <li><a href="/Users/Index">Users List</a></li>
+                                <li><a href="/Users/ChangePassword">Users List</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    @*@await Html.PartialAsync("_LoginPartial")*@
+                </div>
+            </div>
+        </nav>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <br /><br />
+    </div>
+
+    <div class="col-md-12 text-center bg-primary navbar-fixed-bottom">
+
+        <footer>
+            <p>Final Assessment Task Assigned by <a class="text-warning" href="http://thetasolutions.co.uk/" target="_blank">Theta Solutions</a> and fully completed by <a class="text-warning" href="www.linkedin.com/in/RanaAzeemUrRehman" target="_blank">Azeem Ur Rehman</a> <br /> (Sep 2017 Batch, ASP.NET CORE MVC6)</p>
+        </footer>
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/ItemSlider/js/modernizr.custom.63321.js"></script>
+        <script src="~/ItemSlider/js/jquery.catslider.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

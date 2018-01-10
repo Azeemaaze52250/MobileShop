@@ -19,5 +19,7 @@ namespace MobileShop.Models
 
         [Required]
         public string Password { get; set; }
+
+        public DateTime? Tdate { get; set; }
     }
 }
