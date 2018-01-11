@@ -1,7 +1,11 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "My Mobile Shop";
     Layout = "~/Views/Shared/_LayoutDashBoard.cshtml";
+    var isFiltered = HttpContextAccessor.HttpContext.Session.GetString("currentUserName").ToString();
+    ViewData["currentUserName"] = isFiltered;
+
 }
 
 <style>
@@ -15,7 +19,7 @@
         height: 100%;
         font-size: 150px;
         text-align: center;
-        vertical-align: middle;
+        vertical-align:middle;
         color: #000000;
         z-index: 200000;
         background-color: #FFFFFF;
@@ -40,13 +44,14 @@
 
 
 </style>
-   
+ 
 <div id="work-in-progress">
     <div class="work-spinner"></div>
 </div>
 
    <div class="container">
     <!-- Codrops top bar -->
+   
   
     <div class="main">
         <div id="mi-slider" class="mi-slider">
@@ -85,6 +90,11 @@
         </div>
     </div>
 </div><!-- /container -->
+
+        @{
+
+        } 
+      
 
 <div class="row bg-primary"  >
     <hr class="text-hide" />
@@ -410,9 +420,9 @@
     {
     <script>
 
-        $(window).bind("load", function () {
+        $(window).bind("load", window.setInterval(function () {
             $('#work-in-progress').fadeOut(100);
-        });
+        },1000));
 
     $(function () {
         $('#UserCounter').load('/Home/UserCount');

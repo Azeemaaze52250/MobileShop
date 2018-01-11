@@ -45,9 +45,24 @@ namespace MobileShop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult EditCustomer(int CustomerCode)
+        {
+           
+            Customers c = dbContext.Customers.Where(db => db.CustomerCode == CustomerCode).FirstOrDefault();
+            return View(c);
+        }
+        [HttpPost]
         public IActionResult EditCustomer(Customers c)
         {
-            dbContext.Customers.Update(c);
+            Customers cE = dbContext.Customers.Where(db => db.CustomerCode == c.CustomerCode).FirstOrDefault();
+            cE.CustomerName = c.CustomerName;
+            cE.City = c.City;
+            cE.Area = c.Area;
+            cE.Cnic = c.Cnic;
+            cE.Street = c.Street;
+            cE.Mobile = c.Mobile;
+
+            dbContext.Customers.Update(cE);
             dbContext.SaveChanges();
 
             return RedirectToAction(nameof(Index));
@@ -57,7 +72,7 @@ namespace MobileShop.Controllers
         public IActionResult CustomerDetail(Customers c)
         {
           
-            return View(dbContext.Customers.Where(abc => abc.CustomerCode == c.CustomerCode).FirstOrDefault<Customers>());
+            return View(dbContext.Customers.Where(abc => abc.CustomerCode == c.CustomerCode).FirstOrDefault());
         }
     }
 }

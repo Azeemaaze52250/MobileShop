@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MobileShop.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace MobileShop.Controllers
 {
@@ -34,8 +35,15 @@ namespace MobileShop.Controllers
             dbContext.Users.Add(c);
             dbContext.SaveChanges();
 
+            string msgBody = "<p>New User Created by User Id <br/>" + c.UserName + "</p>";
+
+            EmailSending ES = new EmailSending();
+            ES.SendEmail("New User Creation Confirmation",msgBody,c.UserName);
+
             return RedirectToAction(nameof(UserLogin));
         }
+
+
 
         public IActionResult DeleteUser(Users c)
         {
@@ -72,7 +80,16 @@ namespace MobileShop.Controllers
             var v = dbContext.Users.Where(a => a.UserName.Equals(c.UserName) && a.Password.Equals(c.Password)).FirstOrDefault();
             if (v != null)
             {
-                
+                //MyGlobalVariables mgv = new MyGlobalVariables();
+                HttpContext.Session.SetString("currentUserID",v.UserId.ToString());
+                HttpContext.Session.SetString("currentUserName", v.UserName);
+                HttpContext.Session.SetString("currentUserRole", v.UserRole);
+
+
+                ViewData["currentUserID"] = HttpContext.Session.GetString("currentUserID");
+                ViewData["currentUserName"] = HttpContext.Session.GetString("currentUserName");
+                ViewData["currentUserRole"] = HttpContext.Session.GetString("currentUserRole");
+
                 return RedirectToAction(nameof(Index), "Home");
 
             }
@@ -81,6 +98,23 @@ namespace MobileShop.Controllers
                 ViewBag.Message = "Please Enter Valid UserName or Password";
             }
             return View();
+        }
+
+        public IActionResult LogOut()
+        {
+
+
+            HttpContext.Session.SetString("currentUserID", "");
+            HttpContext.Session.SetString("currentUserName", "");
+            HttpContext.Session.SetString("currentUserRole", "");
+
+
+            ViewData["currentUserID"] = HttpContext.Session.GetString("currentUserID");
+            ViewData["currentUserName"] = HttpContext.Session.GetString("currentUserName");
+            ViewData["currentUserRole"] = HttpContext.Session.GetString("currentUserRole");
+
+            return RedirectToAction(nameof(UserLogin), "Users");
+                       
         }
     }
 }

@@ -25,7 +25,7 @@ namespace MobileShop.Controllers
         [HttpGet]
         public IActionResult AddNewPurchase()
         {
-            ViewBag["Vendor"] = new SelectList(dbContext.Vendors, "VendorCode", "VendorName");
+            ViewData["vendor"] = new SelectList(dbContext.Vendors, "VendorCode", "VendorName");
             return View();
         }
 
@@ -36,7 +36,7 @@ namespace MobileShop.Controllers
             dbContext.Purchase.Add(c);
             dbContext.SaveChanges();
 
-            ViewBag["Vendor"] = new SelectList(dbContext.Vendors, "VendorCode", "VendorName", c.VendorCode);
+            ViewData["Vendor"] = new SelectList(dbContext.Vendors, "VendorCode", "VendorName", c.VendorCode);
             return RedirectToAction(nameof(Index));
         }
 

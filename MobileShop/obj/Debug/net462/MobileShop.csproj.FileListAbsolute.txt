@@ -498,6 +498,7 @@ D:\MVC Data\MyMobileShop\MobileShop\bin\Debug\net462\Microsoft.AspNetCore.Server
 D:\MVC Data\MyMobileShop\MobileShop\bin\Debug\net462\Microsoft.AspNetCore.Server.Kestrel.Https.dll
 D:\MVC Data\MyMobileShop\MobileShop\bin\Debug\net462\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
 D:\MVC Data\MyMobileShop\MobileShop\bin\Debug\net462\Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv.dll
+D:\MVC Data\MyMobileShop\MobileShop\bin\Debug\net462\Microsoft.AspNetCore.Session.dll
 D:\MVC Data\MyMobileShop\MobileShop\bin\Debug\net462\Microsoft.AspNetCore.StaticFiles.dll
 D:\MVC Data\MyMobileShop\MobileShop\bin\Debug\net462\Microsoft.AspNetCore.WebUtilities.dll
 D:\MVC Data\MyMobileShop\MobileShop\bin\Debug\net462\Microsoft.CodeAnalysis.dll
@@ -681,4 +682,3 @@ D:\MVC Data\MyMobileShop\MobileShop\obj\Debug\net462\MobileShop.AssemblyInfoInpu
 D:\MVC Data\MyMobileShop\MobileShop\obj\Debug\net462\MobileShop.AssemblyInfo.cs
 D:\MVC Data\MyMobileShop\MobileShop\obj\Debug\net462\MobileShop.exe
 D:\MVC Data\MyMobileShop\MobileShop\obj\Debug\net462\MobileShop.pdb
-D:\MVC Data\MyMobileShop\MobileShop\obj\Debug\net462\MobileShop.csprojResolveAssemblyReference.cache

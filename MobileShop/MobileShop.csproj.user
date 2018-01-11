@@ -9,7 +9,9 @@
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>False</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_ViewDialogWidth>600</WebStackScaffolding_ViewDialogWidth>
-    <WebStackScaffolding_LayoutPageFile>~/Views/Shared/_LayoutDashBoard.cshtml</WebStackScaffolding_LayoutPageFile>
     <ShowAllFiles>true</ShowAllFiles>
+    <WebStackScaffolding_DbContextTypeFullName>MobileShop.Models.MobileShopContext</WebStackScaffolding_DbContextTypeFullName>
+    <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
+    <WebStackScaffolding_LayoutPageFile />
   </PropertyGroup>
 </Project>

@@ -61,7 +61,7 @@ namespace MobileShop.Controllers
             dbContext.Products.Add(c);
             dbContext.SaveChanges();
 
-            ViewBag["ProductCategory"] = new SelectList(dbContext.ProductCategory, "CategoryCode", "CategoryName", c.CategoryCode);
+            //ViewBag["ProductCategory"] = new SelectList(dbContext.ProductCategory, "CategoryCode", "CategoryName", c.CategoryCode);
             return RedirectToAction(nameof(Index));
 
            

@@ -61,6 +61,10 @@ namespace MobileShop.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Email)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Tdate).HasColumnType("date");
             });
 

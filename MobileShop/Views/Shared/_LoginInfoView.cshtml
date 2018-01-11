@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor;
+@{
+   
+    var isFiltered = HttpContextAccessor.HttpContext.Session.GetString("currentUserName").ToString();
+    ViewData["currentUserName"] = isFiltered;
+
+}
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@

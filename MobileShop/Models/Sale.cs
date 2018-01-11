@@ -10,6 +10,7 @@ namespace MobileShop.Models
         public int Id { get; set; }
         [DisplayName("Date")]
         [Required]
+        [DataType(DataType.Date)]
         public DateTime? Tdate { get; set; }
 
         [DisplayName("Product")]
@@ -21,6 +22,7 @@ namespace MobileShop.Models
 
         [Required]
         public int? UnitPrice { get; set; }
+
         public int? LineTotal { get; set; }
 
         [DisplayName("Customer")]

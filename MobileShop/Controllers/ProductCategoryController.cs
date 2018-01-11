@@ -32,10 +32,22 @@ namespace MobileShop.Controllers
         public IActionResult AddNewProductCategory(ProductCategory c)
         {
             c.Tdate = DateTime.Today.Date;
+
+            if (dbContext.ProductCategory.Where(pc=>pc.CategoryName==c.CategoryName).Count()>0)
+            {
+                ViewBag.CategoryAlreadyExist = "Category Already Exist";
+                return View();
+            }
+
             dbContext.ProductCategory.Add(c);
             dbContext.SaveChanges();
 
             return RedirectToAction(nameof(Index));
+        }
+
+        public int CategoryCountAjax(int CategoryCode)
+        {
+            return dbContext.ProductCategory.Where(p => p.CategoryCode == CategoryCode).Count();
         }
 
         public IActionResult DeleteProductCategory(ProductCategory c)
@@ -51,15 +63,37 @@ namespace MobileShop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult EditProductCategory(ProductCategory c)
+        public IActionResult EditProductCategory(int CategoryCode)
         {
-            dbContext.ProductCategory.Update(c);
-            dbContext.SaveChanges();
+            ProductCategory pc = dbContext.ProductCategory.Where(p => p.CategoryCode == CategoryCode).SingleOrDefault();
+
+            if (pc != null)
+            {
+                return View(pc);
+            }
+
 
             return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]
+        public IActionResult EditProductCategory(ProductCategory c)
+        {
+            ProductCategory pc = dbContext.ProductCategory.Where(p => p.CategoryCode == c.CategoryCode).SingleOrDefault();
+
+            if (pc != null)
+            {
+                pc.CategoryName = c.CategoryName;
+
+                dbContext.Update(pc);
+                dbContext.SaveChanges();
+            }
+           
+
+            return RedirectToAction(nameof(Index));
+        }
+
+       
         public IActionResult ProductCategoryDetail(ProductCategory c)
         {
                        return View(dbContext.ProductCategory.Where(abc => abc.CategoryCode == c.CategoryCode).FirstOrDefault<ProductCategory>());

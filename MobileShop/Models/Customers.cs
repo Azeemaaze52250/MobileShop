@@ -26,6 +26,10 @@ namespace MobileShop.Models
         public string City { get; set; }
         public string Country { get; set; }
 
+        [Required]
+        [DisplayName("Email")]
+        public string Email { get; set; }
+
         public ICollection<Sale> Sale { get; set; }
     }
 }

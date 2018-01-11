@@ -2,6 +2,10 @@
 
 @{
     ViewData["Title"] = "AddNewSale";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    IList<Products> pli = ViewBag.pl;
+    IList<Customers> cli = ViewBag.cl;
 }
 
 <h2>AddNewSale</h2>
@@ -24,7 +28,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ProductCode" class="control-label"></label>
-                <input asp-for="ProductCode" id="Tdate" class="form-control" />
+                @Html.DropDownList("Products",new SelectList(pli,"ProductCode","ProductName"),"",new { @class="form-control"})
                 <span asp-validation-for="ProductCode" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -44,7 +48,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="CustomerCode" class="control-label"></label>
-                <select asp-for="CustomerCode" class="form-control" asp-items="@ViewBag.Customer"></select>
+                @Html.DropDownList("Customers", new SelectList(cli, "CustomerCode", "CustomerName"), "", new { @class = "form-control" })
                 <span asp-validation-for="CustomerCode" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -58,19 +62,3 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
-     $(function () {
-
-            $('#Tdate').datepicker();
-                   });
-
-
-<script type="text/javascript">
-function add_chatinline(){var hccid=97452151;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}
-add_chatinline(); </script>
-}
-
-
-       

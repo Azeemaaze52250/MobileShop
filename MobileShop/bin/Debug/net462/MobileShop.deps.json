@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETFramework,Version=v4.6.2/win7-x86",
-    "signature": "5b206e5f51f671b0dbc375426e56741ae378e24d"
+    "signature": "a454c60fe858c2fb22cdb1dc927bbad503e5eb6e"
   },
   "compilationOptions": {
     "defines": [
@@ -29,12 +29,15 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.0.1",
           "Microsoft.AspNetCore.Mvc": "2.0.1",
           "Microsoft.AspNetCore.Mvc.Razor.ViewCompilation": "2.0.1",
+          "Microsoft.AspNetCore.Session": "2.0.1",
           "Microsoft.AspNetCore.StaticFiles": "2.0.1",
           "Microsoft.EntityFrameworkCore.Design": "2.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.1",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.1",
+          "Microsoft.Extensions.Caching.Memory": "2.0.0",
           "Microsoft.VisualStudio.Web.BrowserLink": "2.0.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.1",
+          "jQuery.UI.Combined": "1.12.1",
           "Microsoft.CSharp.Reference": "4.0.0.0",
           "mscorlib": "4.0.0.0",
           "System.ComponentModel.Composition": "4.0.0.0",
@@ -766,6 +769,12 @@
           "System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "jQuery/1.12.4": {},
+      "jQuery.UI.Combined/1.12.1": {
+        "dependencies": {
+          "jQuery": "1.12.4"
+        }
+      },
       "Libuv/1.10.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
@@ -1362,6 +1371,18 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Session/2.0.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.DataProtection": "2.0.1",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.0.1",
+          "Microsoft.Extensions.Caching.Abstractions": "2.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "2.0.0",
+          "Microsoft.Extensions.Options": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Session.dll": {}
         }
       },
       "Microsoft.AspNetCore.StaticFiles/2.0.1": {
@@ -2123,12 +2144,15 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.0.1",
           "Microsoft.AspNetCore.Mvc": "2.0.1",
           "Microsoft.AspNetCore.Mvc.Razor.ViewCompilation": "2.0.1",
+          "Microsoft.AspNetCore.Session": "2.0.1",
           "Microsoft.AspNetCore.StaticFiles": "2.0.1",
           "Microsoft.EntityFrameworkCore.Design": "2.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.1",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.1",
+          "Microsoft.Extensions.Caching.Memory": "2.0.0",
           "Microsoft.VisualStudio.Web.BrowserLink": "2.0.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.1",
+          "jQuery.UI.Combined": "1.12.1",
           "Microsoft.CSharp.Reference": "4.0.0.0",
           "mscorlib": "4.0.0.0",
           "System.ComponentModel.Composition": "4.0.0.0",
@@ -2253,6 +2277,12 @@
         },
         "runtime": {
           "MobileShop.exe": {}
+        }
+      },
+      "jQuery/1.12.4": {},
+      "jQuery.UI.Combined/1.12.1": {
+        "dependencies": {
+          "jQuery": "1.12.4"
         }
       },
       "Libuv/1.10.0": {
@@ -2854,6 +2884,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Session/2.0.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.DataProtection": "2.0.1",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.0.1",
+          "Microsoft.Extensions.Caching.Abstractions": "2.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "2.0.0",
+          "Microsoft.Extensions.Options": "2.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Session.dll": {}
         }
       },
       "Microsoft.AspNetCore.StaticFiles/2.0.1": {
@@ -3617,6 +3659,20 @@
       "serviceable": false,
       "sha512": ""
     },
+    "jQuery/1.12.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pIYtWlFI5PGlJVB8jm9H96pAQ27jQhA9sCxMeGweeC3ByQRaB8BwkIuGdTt4go3IEKTmmfRC2y5k0FLFizWDQg==",
+      "path": "jquery/1.12.4",
+      "hashPath": "jquery.1.12.4.nupkg.sha512"
+    },
+    "jQuery.UI.Combined/1.12.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5B0LrPZ0TLlwplPRu43h7fgMtDxMMEF31HajUqHSOJ7bC6nyJUJy7AkcuGaJdBrrZAZutnSBgXT01BGiIIC4TQ==",
+      "path": "jquery.ui.combined/1.12.1",
+      "hashPath": "jquery.ui.combined.1.12.1.nupkg.sha512"
+    },
     "Libuv/1.10.0": {
       "type": "package",
       "serviceable": true,
@@ -4015,6 +4071,13 @@
       "sha512": "sha512-4GT9cQfP5arzReMTzxrbZyveHAQFbjIUaBN2xip4jwNn3rAhRKSty/6UhwrLDZ9+BSfSvb3qOjBklJPWeYFLOA==",
       "path": "microsoft.aspnetcore.server.kestrel.transport.libuv/2.0.1",
       "hashPath": "microsoft.aspnetcore.server.kestrel.transport.libuv.2.0.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Session/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ERowmL/UQUJ5mzbEQrQcLXqSgRAN3A78SLweI1lB6ce4suQ8+dtgi9qm56mePrVLnRhdN10XTrcAkZZIje7PAA==",
+      "path": "microsoft.aspnetcore.session/2.0.1",
+      "hashPath": "microsoft.aspnetcore.session.2.0.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.StaticFiles/2.0.1": {
       "type": "package",

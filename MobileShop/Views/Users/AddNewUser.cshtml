@@ -29,7 +29,7 @@
             </div>*@
             <div class="form-group">
                 <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" />
+                <input type="email" asp-for="UserName" class="form-control" />
                 <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
            
@@ -45,8 +45,9 @@
                 <select name='UserRole' id='UserRole' class="form-control">
                     <option value='1'>Staff</option>
                     <option value='2'>Admin</option>
-                    <span asp-validation-for="UserRole" class="text-danger"></span>
+                    
                 </select>
+                <span asp-validation-for="UserRole" class="text-danger"></span>
             </div>
 
             <div class="form-group">

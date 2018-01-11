@@ -28,7 +28,7 @@
                 @Html.DisplayFor(modelItem => item.CategoryCode)
             </td>*@
             <td>
-                @Html.DisplayFor(modelItem => item.CategoryName)
+                @Html.DisplayFor(modelItem => item.CategoryName)<span class="catCount badge" data-id="@item.CategoryCode"></span>
             </td>
             <td>
                 @Html.ActionLink("Edit", "EditProductCategory", new { CategoryCode=item.CategoryCode }) |
@@ -44,7 +44,31 @@
    <script>
        $(document).ready(function () {
            $('#dtable').DataTable();
+
+           $('.catCount').each(function () {
+               //test
+               sp = $(this);
+               alert(sp.data('id'));
+               $.ajax({
+                   before: function () { },
+
+                   url: '/ProductCategory/CategoryCountAjax',
+                   type: 'GET',
+                   data: {
+                       CategoryCode: sp.data('id')
+                   },
+                   success: function (result) {
+                       sp.text(result);
+                       //$(this).load()
+                   },
+                   error: function () { },
+                   after: function () { }
+               });
+
+           });
        });
+
+        
 
         type="text/javascript">function add_chatinline(){var hccid=97452151;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}
 add_chatinline(); 

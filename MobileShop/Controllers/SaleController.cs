@@ -4,63 +4,51 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MobileShop.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MobileShop.Controllers
 {
     public class SaleController : Controller
     {
-        MobileShopContext dbContext = null;
+        MobileShopContext dbContext;
 
-        public SaleController(MobileShopContext _deContext)
+       public SaleController(MobileShopContext _dbContext)
         {
-            dbContext = _deContext;
+            dbContext = _dbContext;
         }
 
         public IActionResult Index()
         {
-            return View(dbContext.Sale.ToList<Sale>());
+
+            return View(dbContext.Sale.ToList());
         }
 
-        [HttpGet]
         public IActionResult AddNewSale()
         {
-            ViewBag["Customer"] = new SelectList(dbContext.Customers, "CustomerCode", "CustomerName");
+            IList<Products> plist = dbContext.Products.ToList();
+            ViewBag.pl = plist;
+
+            IList<Customers> clist = dbContext.Customers.ToList();
+            ViewBag.cl = clist;
+
             return View();
         }
 
         [HttpPost]
-        public IActionResult AddNewSale(Sale c)
+        public IActionResult AddNewSale(Sale s)
         {
-            c.Tdate = DateTime.Today.Date;
-            dbContext.Sale.Add(c);
-            dbContext.SaveChanges();
+            //IList<Products> plist = dbContext.Products.ToList();
+            //ViewBag.pl = plist;
 
-            ViewBag["Customer"] = new SelectList(dbContext.Customers, "CustomerCode", "CustomerName", c.CustomerCode);
+            //IList<Customers> clist = dbContext.Customers.ToList();
+            //ViewBag.cl = clist;
+
+            if (s!=null)
+            {
+                dbContext.Sale.Add(s);
+                dbContext.SaveChanges();
+            }
+           
             return RedirectToAction(nameof(Index));
-        }
-
-        public IActionResult DeleteSale(Sale c)
-        {
-            dbContext.Sale.Remove(c);
-            dbContext.SaveChanges();
-
-            return RedirectToAction(nameof(Index));
-        }
-
-        public IActionResult EditSale(Sale c)
-        {
-            dbContext.Sale.Update(c);
-            dbContext.SaveChanges();
-
-            return RedirectToAction(nameof(Index));
-        }
-
-        [HttpPost]
-        public IActionResult SaleDetail(Sale c)
-        {
-            // Sale SingleSale = dbContext.Sale.Where(abc => abc.SaleCode == c.SaleCode).FirstOrDefault<Sale>();
-            return View(dbContext.Sale.Where(abc => abc.Id == c.Id).FirstOrDefault<Sale>());
         }
     }
 }

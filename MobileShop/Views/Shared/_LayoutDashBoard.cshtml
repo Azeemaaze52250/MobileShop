@@ -89,15 +89,19 @@
                             </ul>
                         </li>
 
+                        <li><a href="/Users/LogOut">Log Out - @ViewData["currentUserName"]</a></li>
+                        
                     </ul>
                     @*@await Html.PartialAsync("_LoginPartial")*@
                 </div>
             </div>
         </nav>
 
-
+  
 
     <div class="container body-content">
+        <p class="btn btn-default pull-right" style="z-index:99999999; top:0;">User Logged In : @ViewData["currentUserName"]</p>
+       
         @RenderBody()
         <br /><br />
     </div>

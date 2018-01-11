@@ -2,19 +2,20 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
 
 <p>
-    <a asp-action="AddNewSale">Create New</a>
+    <a asp-action="Create">Create New</a>
 </p>
-<table class="table" id="dtable">
+<table class="table">
     <thead>
         <tr>
-                <th>
+                @*<th>
                     @Html.DisplayNameFor(model => model.Id)
-                </th>
+                </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.Tdate)
                 </th>
@@ -39,9 +40,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Id)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Tdate)
             </td>
@@ -61,23 +62,11 @@
                 @Html.DisplayFor(modelItem => item.CustomerCode)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditSale", new { Id=item.Id }) |
-                @Html.ActionLink("Details", "SaleDetail", new { Id = item.Id }) |
-                @Html.ActionLink("Delete", "DeleteSale", new { Id = item.Id })
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }
     </tbody>
 </table>
-@section Scripts
-    {
-    <script>
-
-        type="text/javascript">function add_chatinline(){var hccid=97452151;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}
-add_chatinline(); 
-
-            $(document).ready(function () {
-                $('#dtable').DataTable();
-            });
-</script>
-}
