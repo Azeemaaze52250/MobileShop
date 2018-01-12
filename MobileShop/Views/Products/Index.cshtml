@@ -24,10 +24,10 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Price)
                 </th>
-                <th>
+                @*<th>
                     @Html.DisplayNameFor(model => model.Image)
-                </th>
-                <th>
+                </th>*@
+                @*<th>
                     @Html.DisplayNameFor(model => model.ModelNo)
                 </th>
                 <th>
@@ -35,7 +35,7 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Iemino)
-                </th>
+                </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.Color)
                 </th>
@@ -52,7 +52,7 @@
                 @Html.DisplayFor(modelItem => item.ProductCode)
             </td>*@
             <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
+                @Html.DisplayFor(modelItem => item.ProductName)<span class="saleCount badge bg-success pull-right" data-id="@item.ProductCode">0</span>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
@@ -60,7 +60,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Image)
             </td>
             <td>
@@ -71,17 +71,20 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Iemino)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Color)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CategoryCode)
+                @Html.DisplayFor(modelItem => item.CategoryCodeNavigation.CategoryName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditProduct", new { ProductCode=item.ProductCode }) |
-                @Html.ActionLink("Details", "ProductDetail", new { ProductCode=item.ProductCode }) |
-                @Html.ActionLink("Delete", "DeleteProduct", new { ProductCode=item.ProductCode })
+               
+                @Html.ActionLink("", "ProductDetail", new { ProductCode=item.ProductCode }, new { @class = "btn-sm btn-success glyphicon glyphicon-info-sign", @title = "Detail" })
+
+                @Html.ActionLink("", "EditProduct", new { ProductCode = item.ProductCode }, new { @class = "btn-sm btn-success glyphicon glyphicon-edit", @title = "Edit" }) 
+
+                @Html.ActionLink("", "DeleteProduct", new { ProductCode=item.ProductCode }, new { @class = "btn-sm btn-success glyphicon glyphicon-trash", @title = "Delete" })
             </td>
         </tr>
 }
@@ -93,6 +96,32 @@
 <script>
     $(document).ready(function () {
         $('#dtable').DataTable();
+
+        $('.saleCount').each(function () {
+            //test
+            var sp = $(this);
+
+            $.ajax({
+                before: function () { },
+
+                url: '/Products/ProductSaleCountAjax',
+                type: 'GET',
+                data: {
+                    ProductCode: sp.data('id')
+
+                },
+                success: function (result) {
+
+                    sp.text(result);
+                    //$(this).load()
+                },
+                error: function () { },
+                after: function () { }
+            });
+
+        });
+
+
     });
 
     type="text/javascript">function add_chatinline(){var hccid=97452151;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}

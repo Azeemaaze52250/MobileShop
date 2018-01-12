@@ -47,7 +47,7 @@ namespace MobileShop.Controllers
 
         public int CategoryCountAjax(int CategoryCode)
         {
-            return dbContext.ProductCategory.Where(p => p.CategoryCode == CategoryCode).Count();
+            return dbContext.Products.Where(p => p.CategoryCode == CategoryCode).Count();
         }
 
         public IActionResult DeleteProductCategory(ProductCategory c)

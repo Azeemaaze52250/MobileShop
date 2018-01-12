@@ -89,5 +89,11 @@ namespace MobileShop.Controllers
            
             return View(dbContext.Products.Where(abc => abc.ProductCode == c.ProductCode).FirstOrDefault<Products>());
         }
+
+        public int ProductSaleCountAjax(int ProductCode)
+        {
+            return dbContext.Products.Where(p => p.CategoryCode == ProductCode).Count();
+        }
+
     }
 }

@@ -9,7 +9,7 @@
 <p>
     <a asp-action="AddNewProductCategory">Create New</a>
 </p>
-<table class="table" id="dtable">
+<table class="table table table-striped table-condensed" id="dtable">
     <thead>
         <tr>
                 @*<th>
@@ -28,12 +28,14 @@
                 @Html.DisplayFor(modelItem => item.CategoryCode)
             </td>*@
             <td>
-                @Html.DisplayFor(modelItem => item.CategoryName)<span class="catCount badge" data-id="@item.CategoryCode"></span>
+                @Html.DisplayFor(modelItem => item.CategoryName)<span class="catCount badge pull-right" data-id="@item.CategoryCode">0</span>
             </td>
-            <td>
-                @Html.ActionLink("Edit", "EditProductCategory", new { CategoryCode=item.CategoryCode }) |
-                @Html.ActionLink("Details", "ProductCategoryDetail", new { CategoryCode=item.CategoryCode }) |
-                @Html.ActionLink("Delete", "DeleteProductCategory", new {CategoryCode=item.CategoryCode })
+            <td class="pull-right">
+                @Html.ActionLink("", "ProductCategoryDetail", new { CategoryCode = item.CategoryCode }, new { @class = "btn-sm btn-success glyphicon glyphicon-info-sign", @title="Detail" })
+                
+                @Html.ActionLink("", "EditProductCategory", new { CategoryCode=item.CategoryCode }, new { @class= "btn-sm btn-warning glyphicon glyphicon-edit", @title = "Edit" } ) 
+               
+                @Html.ActionLink("", "DeleteProductCategory", new {CategoryCode=item.CategoryCode }, new { @class = "btn-sm btn-danger glyphicon glyphicon-trash", @title="Delete" })
             </td>
         </tr>
 }
@@ -47,19 +49,22 @@
 
            $('.catCount').each(function () {
                //test
-               sp = $(this);
-               alert(sp.data('id'));
+               var sp = $(this);
+               
                $.ajax({
                    before: function () { },
-
+                   
                    url: '/ProductCategory/CategoryCountAjax',
                    type: 'GET',
                    data: {
                        CategoryCode: sp.data('id')
+                       
                    },
-                   success: function (result) {
+                   success: function (result)
+                   {
+                       
                        sp.text(result);
-                       //$(this).load()
+                                              //$(this).load()
                    },
                    error: function () { },
                    after: function () { }
