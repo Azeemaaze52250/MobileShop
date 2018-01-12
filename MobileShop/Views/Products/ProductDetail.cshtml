@@ -6,73 +6,78 @@
 
 <h2>Product Detail</h2>
 
-<div>
-   
+  
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductCode)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ProductCode)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ProductName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt>
-            <img src="@Url.Content(Model.Image)" alt="Image" height="100" width="100" /> 
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ModelNo)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ModelNo)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SerialNo)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SerialNo)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Iemino)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Iemino)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Color)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Color)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CategoryCode)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CategoryCodeNavigation.CategoryName)
-           
-        </dd>
-    </dl>
-</div>
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProductCode)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProductCode)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProductName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+               
+                <dt>
+                    @Html.DisplayNameFor(model => model.ModelNo)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ModelNo)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SerialNo)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SerialNo)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Iemino)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Iemino)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Color)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Color)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CategoryCode)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CategoryCodeNavigation.CategoryName)
+
+                </dd>
+            </dl>
+        </div>
+
+        <div class="col-md-3">
+            
+                <img class="img img-responsive" src="@Url.Content(Model.Image)" alt="Image" />
+            
+        </div>
+    </div>
+    
+
 <div>
     @Html.ActionLink("Edit", "EditProduct", new { ProductCode = Model.ProductCode }) |
     <a asp-action="Index">Back to List</a>

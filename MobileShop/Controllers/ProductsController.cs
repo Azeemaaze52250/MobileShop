@@ -37,6 +37,8 @@ namespace MobileShop.Controllers
         [HttpPost]
         public IActionResult AddNewProduct(Products c,IFormFile Image)
         {
+            ViewData["ProductCategory"] = new SelectList(dbContext.ProductCategory, "CategoryCode", "CategoryName");
+            
             c.Tdate = DateTime.Today.Date;
             string wwwrootPath = env.WebRootPath;
             string PPFolderPath = wwwrootPath + "/ProductImages/";
@@ -61,7 +63,7 @@ namespace MobileShop.Controllers
             dbContext.Products.Add(c);
             dbContext.SaveChanges();
 
-            //ViewBag["ProductCategory"] = new SelectList(dbContext.ProductCategory, "CategoryCode", "CategoryName", c.CategoryCode);
+           
             return RedirectToAction(nameof(Index));
 
            
@@ -75,15 +77,45 @@ namespace MobileShop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult EditProduct(int ProductCode)
+        {
+            //ViewData["ProductCategory"] = new SelectList(dbContext.ProductCategory, "CategoryCode", "CategoryName");
+            IList<ProductCategory> pc = dbContext.ProductCategory.ToList();
+            ViewBag.ProductCategory = pc;
+            Products p = dbContext.Products.Where(pd => pd.ProductCode == ProductCode).FirstOrDefault();
+            return View(p);
+        }
+
+        [HttpPost]
         public IActionResult EditProduct(Products c)
         {
-            dbContext.Products.Update(c);
-            dbContext.SaveChanges();
+            IList<ProductCategory> pc = dbContext.ProductCategory.ToList();
+            ViewBag.ProductCategory = pc;
+            //ViewData["ProductCategory"] = new SelectList(dbContext.ProductCategory, "CategoryCode", "CategoryName");
+
+            Products p = dbContext.Products.Where(pd => pd.ProductCode == c.ProductCode).FirstOrDefault();
+
+            if (p!=null)
+            {
+                p.ProductName = c.ProductName;
+                p.CategoryCode = c.CategoryCode;
+                p.Color = c.Color;
+                p.Description = c.Description;
+                p.Iemino = c.Iemino;
+                p.ModelNo = c.ModelNo;
+                p.Price = c.Price;
+                p.SerialNo = c.SerialNo;
+
+                dbContext.Products.Update(p);
+                dbContext.SaveChanges();
+            }
+
+            
 
             return RedirectToAction(nameof(Index));
         }
 
-       
+
         public IActionResult ProductDetail(Products c)
         {
            
@@ -95,5 +127,16 @@ namespace MobileShop.Controllers
             return dbContext.Products.Where(p => p.CategoryCode == ProductCode).Count();
         }
 
+        public string ProductOutOfStockCheck(int ProductCode)
+        {
+            Products pd = dbContext.Products.Where(p => p.ProductCode == ProductCode).SingleOrDefault();
+
+            if (pd.Quantity == 0 || pd.Quantity==null)
+            {
+                return "OutStock";
+            }
+            else
+                return "";
+        }
     }
 }

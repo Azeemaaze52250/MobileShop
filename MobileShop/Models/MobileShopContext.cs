@@ -91,6 +91,10 @@ namespace MobileShop.Models
                     .HasName("UK_SerialNo")
                     .IsUnique();
 
+                entity.Property(e => e.Quantity)
+                   .HasColumnName("Quantity")
+                   .IsUnicode(false);
+
                 entity.Property(e => e.Color)
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -99,9 +103,8 @@ namespace MobileShop.Models
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Iemino)
-                    .HasColumnName("IEMINo")
-                    .HasMaxLength(50)
+                entity.Property(e => e.Price)
+                    .HasColumnName("Price")
                     .IsUnicode(false);
 
                 entity.Property(e => e.Image)

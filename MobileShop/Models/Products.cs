@@ -18,6 +18,9 @@ namespace MobileShop.Models
         [Required]
         [MaxLength(50)]
         public string ProductName { get; set; }
+        [Required]
+        public int? Quantity { get; set; }
+
         public string Description { get; set; }
         
         [Required]

@@ -18,12 +18,24 @@ namespace MobileShop.Controllers
 
         public IActionResult Index()
         {
+            IList<Products> plist = dbContext.Products.ToList();
+            ViewBag.pl = plist;
+
+            IList<Vendors> clist = dbContext.Vendors.ToList();
+            ViewBag.cl = clist;
+
             return View(dbContext.Vendors.ToList<Vendors>());
         }
 
         [HttpGet]
         public IActionResult AddNewVendor()
         {
+            IList<Products> plist = dbContext.Products.ToList();
+            ViewBag.pl = plist;
+
+            IList<Vendors> clist = dbContext.Vendors.ToList();
+            ViewBag.cl = clist;
+
             return View();
         }
 
@@ -45,9 +57,23 @@ namespace MobileShop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult EditVendor(Vendors c)
+        public IActionResult EditVendoer(int VendoerCode)
         {
-            dbContext.Vendors.Update(c);
+
+            Vendors c = dbContext.Vendors.Where(db => db.VendorCode == VendoerCode).FirstOrDefault();
+            return View(c);
+        }
+        [HttpPost]
+        public IActionResult EditVendoer(Vendors c)
+        {
+            Vendors cE = dbContext.Vendors.Where(db => db.VendorCode == c.VendorCode).FirstOrDefault();
+            cE.VendorName = c.VendorName;
+            cE.Area = c.Area;
+            cE.Cnic = c.Cnic;
+            
+            cE.Mobile = c.Mobile;
+
+            dbContext.Vendors.Update(cE);
             dbContext.SaveChanges();
 
             return RedirectToAction(nameof(Index));
@@ -58,6 +84,18 @@ namespace MobileShop.Controllers
         {
             // Vendors SingleVendor = dbContext.Vendors.Where(abc => abc.VendorCode == c.VendorCode).FirstOrDefault<Vendors>();
             return View(dbContext.Vendors.Where(abc => abc.VendorCode == c.VendorCode).FirstOrDefault<Vendors>());
+        }
+
+        public string VendorStar(int VendorCode)
+        {
+            Purchase pd = dbContext.Purchase.Where(p => p.VendorCode == VendorCode && p.Tdate >= DateTime.Now.AddDays(-30)).SingleOrDefault();
+
+            if (pd != null)
+            {
+                return "star";
+            }
+            else
+                return "";
         }
     }
 }

@@ -43,7 +43,7 @@
                 @Html.DisplayFor(modelItem => item.VendorCode)
             </td>*@
             <td>
-                @Html.DisplayFor(modelItem => item.VendorName)
+                <span class="star text-warning" data-id="@item.VendorCode"></span> @Html.DisplayFor(modelItem => item.VendorName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Area)
@@ -77,6 +77,35 @@
         $('#dtable').DataTable();
 
         checkCookies();
+    });
+
+    $('.star').each(function () {
+        //test
+        var sp = $(this);
+
+        $.ajax({
+            before: function () { },
+
+            url: '/Vendors/VendorStar',
+            type: 'GET',
+            data: {
+                VendorCode: sp.data('id')
+
+            },
+            success: function (result) {
+               
+                if (result == "star") {
+
+                    sp.addClass("glyphicon glyphicon-star-empty");
+                   
+                }
+
+                //$(this).load()
+            },
+            error: function () { },
+            after: function () { }
+        });
+
     });
 
      type="text/javascript">function add_chatinline(){var hccid=97452151;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}

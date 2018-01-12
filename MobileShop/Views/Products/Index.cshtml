@@ -52,7 +52,7 @@
                 @Html.DisplayFor(modelItem => item.ProductCode)
             </td>*@
             <td>
-                @Html.DisplayFor(modelItem => item.ProductName)<span class="saleCount badge bg-success pull-right" data-id="@item.ProductCode">0</span>
+                @Html.DisplayFor(modelItem => item.ProductName)<span class="outStock badge bg-danger " data-id="@item.ProductCode"></span> <span class="saleCount text-success pull-right" data-id="@item.ProductCode">0</span>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
@@ -76,15 +76,15 @@
                 @Html.DisplayFor(modelItem => item.Color)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CategoryCodeNavigation.CategoryName)
+                @Html.DisplayFor(modelItem => item.CategoryCode)
             </td>
             <td>
                
                 @Html.ActionLink("", "ProductDetail", new { ProductCode=item.ProductCode }, new { @class = "btn-sm btn-success glyphicon glyphicon-info-sign", @title = "Detail" })
 
-                @Html.ActionLink("", "EditProduct", new { ProductCode = item.ProductCode }, new { @class = "btn-sm btn-success glyphicon glyphicon-edit", @title = "Edit" }) 
+                @Html.ActionLink("", "EditProduct", new { ProductCode = item.ProductCode }, new { @class = "btn-sm btn-warning glyphicon glyphicon-edit", @title = "Edit" }) 
 
-                @Html.ActionLink("", "DeleteProduct", new { ProductCode=item.ProductCode }, new { @class = "btn-sm btn-success glyphicon glyphicon-trash", @title = "Delete" })
+                @Html.ActionLink("", "DeleteProduct", new { ProductCode=item.ProductCode }, new { @class = "btn-sm btn-danger glyphicon glyphicon-trash", @title = "Delete" })
             </td>
         </tr>
 }
@@ -112,7 +112,7 @@
                 },
                 success: function (result) {
 
-                    sp.text(result);
+                    sp.text("(" +result + " Sold)" );
                     //$(this).load()
                 },
                 error: function () { },
@@ -121,7 +121,29 @@
 
         });
 
+        $('.outStock').each(function () {
+            //test
+            var st = $(this);
 
+            $.ajax({
+                before: function () { },
+
+                url: '/Products/ProductOutOfStockCheck',
+                type: 'GET',
+                data: {
+                    ProductCode: st.data('id')
+
+                },
+                success: function (result) {
+
+                    st.text(result);
+                    //$(this).load()
+                },
+                error: function () { },
+                after: function () { }
+            });
+
+        });
     });
 
     type="text/javascript">function add_chatinline(){var hccid=97452151;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}

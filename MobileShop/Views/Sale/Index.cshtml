@@ -10,7 +10,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table" id="dtable">
     <thead>
         <tr>
                 @*<th>
@@ -59,7 +59,7 @@
                 @Html.DisplayFor(modelItem => item.LineTotal)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerCode)
+                @Html.DisplayFor(modelItem => item.CustomerCodeNavigation.CustomerName)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
@@ -70,3 +70,11 @@
 }
     </tbody>
 </table>
+@section Scripts
+    {
+    <script>
+            $(document).ready(function () {
+                $('#dtable').DataTable();
+            });
+</script>
+        }

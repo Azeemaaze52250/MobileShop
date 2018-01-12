@@ -74,5 +74,17 @@ namespace MobileShop.Controllers
           
             return View(dbContext.Customers.Where(abc => abc.CustomerCode == c.CustomerCode).FirstOrDefault());
         }
+
+        public string CustomerStar(int CustomerCode)
+        {
+            Sale pd = dbContext.Sale.Where(p => p.CustomerCode == CustomerCode && p.Tdate>=DateTime.Now.AddDays(-30)).SingleOrDefault();
+
+            if (pd != null)
+            {
+                return "star";
+            }
+            else
+                return "";
+        }
     }
 }

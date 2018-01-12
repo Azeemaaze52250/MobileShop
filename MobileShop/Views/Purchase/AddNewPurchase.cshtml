@@ -2,6 +2,9 @@
 
 @{
     ViewData["Title"] = "AddNewPurchase";
+
+    IList<Products> pli = ViewBag.pl;
+    IList<Vendors> vli = ViewBag.cl;
 }
 
 <h2>AddNewPurchase</h2>
@@ -24,7 +27,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ProductCode" class="control-label"></label>
-                <input asp-for="ProductCode" class="form-control" />
+                @Html.DropDownList("ProductCode", new SelectList(pli, "ProductCode", "ProductName"), "", new { @class = "form-control" })
                 <span asp-validation-for="ProductCode" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -44,7 +47,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="VendorCode" class="control-label"></label>
-                <select asp-for="VendorCode" class="form-control" asp-items="@ViewData.Vendor"></select>
+                @Html.DropDownList("VendorCode", new SelectList(vli, "VendorCode", "VendorName"), "", new { @class = "form-control" })
                 <span asp-validation-for="VendorCode" class="text-danger"></span>
             </div>
             <div class="form-group">

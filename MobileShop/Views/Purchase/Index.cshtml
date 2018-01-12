@@ -46,7 +46,7 @@
                 @Html.DisplayFor(modelItem => item.Tdate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ProductCode)
+                @Html.DisplayFor(modelItem => item.ProductCodeNavigation.ProductName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
@@ -58,7 +58,7 @@
                 @Html.DisplayFor(modelItem => item.LineTotal)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.VendorCode)
+                @Html.DisplayFor(modelItem => item.VendorCodeNavigation.VendorName)
             </td>
             <td>
                 @Html.ActionLink("Edit", "EditPurchase", new { Id=item.Id }) |
