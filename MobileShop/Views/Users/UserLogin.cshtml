@@ -16,6 +16,76 @@
     <link href="~/JQuery-UI/jquery-ui.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="~/JQuery-UI/jquery-ui.js"></script>
+
+    <style>
+        .fly-in-text{
+            list-style:none;
+            position:absolute;
+            left:100px;
+            top:55px;
+            transform:translateX(-500) translateY(-500);
+        }
+
+        .fly-in-text li{
+            display:inline-block;
+            font-family:sans-serif;
+            font-weight:300;
+            font-size:2.5em;
+            color:#fff;
+            opacity:1;
+            transition:all 5s ease;
+        }
+
+        .fly-in-text li:last-child{
+            margin-right:0;
+        }
+        .fly-in-text.hidden li{
+            opacity:0;
+        }
+        .fly-in-text.hidden li:nth-child(1){
+            transform:translateX(-200) translateY(-200);}
+
+            .fly-in-text.hidden li:nth-child(2) {
+                transform: translateX(200) translateY(740);
+            }
+            .fly-in-text.hidden li:nth-child(3) {
+                transform: translateX(-120) translateY(-120);
+            }
+            .fly-in-text.hidden li:nth-child(4) {
+                transform: translateX(180) translateY(200);
+            }
+            .fly-in-text.hidden li:nth-child(5) {
+                transform: translateX(-160) translateY(-10);
+            }
+            .fly-in-text.hidden li:nth-child(6) {
+                transform: translateX(560) translateY(270);
+            }
+            .fly-in-text.hidden li:nth-child(7) {
+                transform: translateX(-30) translateY(-300);
+            }
+            .fly-in-text.hidden li:nth-child(8) {
+                transform: translateX(200) translateY(200);
+            }
+            .fly-in-text.hidden li:nth-child(9) {
+                transform: translateX(-90) translateY(-290);
+            }
+            .fly-in-text.hidden li:nth-child(10) {
+                transform: translateX(80) translateY(360);
+            }
+            .fly-in-text.hidden li:nth-child(11) {
+                transform: translateX(-50) translateY(-20);
+            }
+            .fly-in-text.hidden li:nth-child(12) {
+                transform: translateX(10) translateY(20);
+            }
+            .fly-in-text.hidden li:nth-child(13) {
+                transform: translateX(-100) translateY(-320);
+            }
+            .fly-in-text.hidden li:nth-child(14) {
+                transform: translateX(20) translateY(400);
+            }
+    </style>
+
     <script>
 
         $(document).ready(function () {
@@ -28,9 +98,15 @@
                     });
                 });
             }); 
-                     
+                           
+           
         });
 
+        $(function () { 
+            setTimeout(function () { 
+                $('.fly-in-text').removeClass('hidden');
+            },500);
+        });
       
 
     </script>
@@ -41,9 +117,24 @@
 
 
 
+    <ul class="fly-in-text hidden">
+        <li>M</li>
+        <li>y</li>
+        <li></li>
+        <li>M</li>
+        <li>o</li>
+        <li>b</li>
+        <li>i</li>
+        <li>l</li>
+        <li>e</li>
+        <li></li>
+        <li>S</li>
+        <li>h</li>
+        <li>o</li>
+        <li>p</li>
+    </ul>
 
-
-    <div id="mp" class="col-md-3 col-md-offset-1 panel panel-primary" style="display:none; margin-top:80px;">
+    <div id="mp" class="col-md-3 col-md-offset-1 panel panel-primary" style="display:none; margin-top:50px;">
         <div class="panel-heading text-center">
             Please sign in
         </div>
