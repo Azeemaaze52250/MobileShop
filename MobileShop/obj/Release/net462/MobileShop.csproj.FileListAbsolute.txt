@@ -333,7 +333,6 @@ D:\MVC Data\MyMobileShop\MobileShop\bin\Release\net462\System.Xml.XmlDocument.dl
 D:\MVC Data\MyMobileShop\MobileShop\bin\Release\net462\System.Xml.XmlSerializer.dll
 D:\MVC Data\MyMobileShop\MobileShop\bin\Release\net462\System.Xml.XPath.dll
 D:\MVC Data\MyMobileShop\MobileShop\bin\Release\net462\System.Xml.XPath.XDocument.dll
-D:\MVC Data\MyMobileShop\MobileShop\obj\Release\net462\MobileShop.csprojResolveAssemblyReference.cache
 D:\MVC Data\MyMobileShop\MobileShop\obj\Release\net462\MobileShop.csproj.CoreCompileInputs.cache
 D:\MVC Data\MyMobileShop\MobileShop\obj\Release\net462\UserSecretsAssemblyInfo.cs
 D:\MVC Data\MyMobileShop\MobileShop\obj\Release\net462\MobileShop.AssemblyInfoInputs.cache
