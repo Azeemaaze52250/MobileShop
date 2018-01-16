@@ -10,20 +10,43 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>UserLogin</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/JQuery-UI/jquery-ui.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="~/JQuery-UI/jquery-ui.js"></script>
+    <script>
 
-   
+        $(document).ready(function () {
+            $("#mp").fadeIn(1000, function(){
+                $("#logIn").fadeIn(400, function () { 
+                    $("#logIn1").fadeIn(400, function () { 
+                        $("#logIn2").fadeToggle(400);
+                        $("#mobAdd").animate({ right: '0px' });
+                        $("#AccAdd").animate({ right: '0px' });
+                    });
+                });
+            }); 
+                     
+        });
+
+      
+
+    </script>
+
 </head>
 
-<body class="center-block">
+<body class="center-block" style="background-color:#2c3e50; background-repeat:repeat-x;">
 
-    
 
-    <div class="col-md-3 col-md-offset-1 panel panel-primary pull-left">
-    <div class="panel-heading text-center">
-        Please sign in
-    </div>
+
+
+
+    <div id="mp" class="col-md-3 col-md-offset-1 panel panel-primary" style="display:none; margin-top:80px;">
+        <div class="panel-heading text-center">
+            Please sign in
+        </div>
         <div class="panel-body">
             <form class="form-signin" asp-action="UserLogin" method="post">
                 <hr />
@@ -43,14 +66,70 @@
             </form>
         </div>
     </div> <!-- /container -->
-   
 
+    <div class="col-md-7 col-md-offset-1">
+        <div class="row">
+            <div id="logIn" class="col-md-3 col bg-danger img-rounded" style="display:none; height:180px;">
+                <h3 style="text-decoration:underline;font-size:larger;color:white;">Molbiles</h3>
+
+                <ul style="color:white;">
+                    <li>Iphone</li>
+                    <li>Samsung</li>
+                    <li>BlackBerry</li>
+                    <li>Nokia</li>
+                    <li>Qmobile</li>
+                </ul>
+            </div>
+             <div id="mobAdd" class="col-md-5 justify-content-end" style="right:-800px; color:white; height:150px; margin-top:15px; text-align:right; border-top:dotted; border-top-color:white; border-bottom:dotted; border-bottom-color:white;border-right:dotted; border-right-color:white; border-radius:25px;">
+                <br />
+                <p> Wide Range Of High Quality Mobiles,</p>
+                <p> With High Resolution Cameras and Big Data Storage Capacity</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="logIn1" class="col-md-3 col-md-offset-3 bg-info img-rounded" style="display:none; height:180px;">
+                <h3 style="text-decoration:underline;font-size:larger;color:white;">Accessories</h3>
+
+                <ul style="color:white;">
+                    <li>Head phones</li>
+                    <li>Chargers</li>
+                    <li>Mobile Covers</li>
+                    <li>Cables</li>
+                    <li>Memory Cards & USBs</li>
+                </ul>
+            </div>
+
+            <div id="AccAdd" class="col-md-5  justify-content-end" style="right:-800px; color:white; height:150px; margin-top:15px; text-align:right; border-top:dotted; border-top-color:white; border-bottom:dotted; border-bottom-color:white;border-right:dotted; border-right-color:white; border-radius:25px;">
+                <br />
+                <p> All Kind Of Mobile Accessories Are Available,</p>
+                <p> We Provide Products On Order If One Is Not In Our Item List</p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div id="logIn2" class="col-md-3 col-md-offset-6 bg-warning img-rounded" style="display:none; height:180px;">
+                <h3 style="text-decoration:underline;font-size:larger;color:white;">Contact Us</h3>
+
+                <ul style="color:white;">
+                    <li>My MobileShop</li>
+                    <li>Gujranwala</li>
+                    <li>aaze52250@gmail</li>
+                    <li>0331-6473349</li>
+                    <li>Qmobile</li>
+                </ul>
+            </div>
+        </div>
+    </div>  
     @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
-    <script type="text/javascript">
-function add_chatinline(){var hccid=97452151;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}
-add_chatinline(); </script>
+        @*<script type="text/javascript">
+            function add_chatinline() { var hccid = 97452151; var nt = document.createElement("script"); nt.async = true; nt.src = "https://mylivechat.com/chatinline.aspx?hccid=" + hccid; var ct = document.getElementsByTagName("script")[0]; ct.parentNode.insertBefore(nt, ct); }
+            add_chatinline();</script>*@
+        @*@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}*@
+
+
     }
 </body>
 </html>

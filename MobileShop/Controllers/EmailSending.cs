@@ -32,7 +32,7 @@ namespace MobileShop.Controllers
                 oSMTP.EnableSsl = true;
                 oSMTP.Host = "smtp.gmail.com";
 
-                oSMTP.Credentials = new System.Net.NetworkCredential("testemailazeem@gmail.com", "mytestemailazeem");
+                oSMTP.Credentials = new System.Net.NetworkCredential("testemailazeem@gmail.com", "testemailazeem");
 
                 oSMTP.Send(oEmail);
             }

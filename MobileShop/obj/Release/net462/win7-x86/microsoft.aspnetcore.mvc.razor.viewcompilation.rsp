@@ -38,6 +38,7 @@ D:\MVC Data\MyMobileShop\MobileShop
 --file=D:\MVC Data\MyMobileShop\MobileShop\Views\ProductCategory\Index.cshtml
 --file=D:\MVC Data\MyMobileShop\MobileShop\Views\ProductCategory\ProductCategoryDetail.cshtml
 --file=D:\MVC Data\MyMobileShop\MobileShop\Views\Products\AddNewProduct.cshtml
+--file=D:\MVC Data\MyMobileShop\MobileShop\Views\Products\EditProduct.cshtml
 --file=D:\MVC Data\MyMobileShop\MobileShop\Views\Products\Index.cshtml
 --file=D:\MVC Data\MyMobileShop\MobileShop\Views\Products\ProductDetail.cshtml
 --file=D:\MVC Data\MyMobileShop\MobileShop\Views\Purchase\AddNewPurchase.cshtml
